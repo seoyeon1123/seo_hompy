@@ -3,45 +3,52 @@ import supabase from '../supabaseClient';
 
 const PageViewCounter = () => {
   const [views, setViews] = useState(0);
+  const pageId = 'view'; // 조회수 추적할 페이지 ID
 
+  // 조회수 가져오는 함수
+  const fetchViews = async () => {
+    try {
+      const { data, error } = await supabase.from('page_views').select('views').eq('page_id', pageId).single();
+
+      if (error) {
+        console.error('Failed to fetch page views:', error);
+        return;
+      }
+
+      const initialViews = data?.views || 0;
+      setViews(initialViews);
+
+      // 조회수를 불러온 후 1 증가시키기
+      incrementViews(initialViews);
+    } catch (error) {
+      console.error('Failed to fetch page views:', error);
+    }
+  };
+
+  // 조회수 증가 함수
+  const incrementViews = async (currentViews: number) => {
+    try {
+      const newViewsCount = currentViews + 1;
+
+      const { error: upsertError } = await supabase
+        .from('page_views')
+        .upsert({ page_id: pageId, views: newViewsCount }, { onConflict: 'page_id' });
+
+      if (upsertError) {
+        console.error('Failed to upsert page views:', upsertError);
+        return;
+      }
+
+      setViews(newViewsCount); // 업데이트된 조회수 상태 설정
+    } catch (error) {
+      console.error('Failed to increment page views:', error);
+    }
+  };
+
+  // 컴포넌트가 처음 로드될 때 조회수 불러오기
   useEffect(() => {
-    const fetchData = async () => {
-      const { data, error } = await supabase.from('page_views').select('views').eq('page_id', 'view');
-      console.log(
-        'views',
-        data?.map((data) => data.views),
-      );
-    };
-    fetchData();
-  });
-
-  // const incrementViews = async () => {
-  //   try {
-  //     const newViewsCount = views + 1; // 현재 조회수에 1을 더함
-
-  //     const { error: upsertError } = await supabase
-  //       .from('page_views')
-  //       .upsert({ page_id: pageId, views: newViewsCount }, { onConflict: 'page_id' });
-
-  //     if (upsertError) {
-  //       console.error('Failed to upsert page views:', upsertError);
-  //       return;
-  //     }
-
-  //     // 업데이트된 조회수 상태 설정
-  //     setViews(newViewsCount);
-  //   } catch (error) {
-  //     console.error('Failed to increment page views:', error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetchViews(); // 기존 조회수 가져오기
-  // }, []);
-
-  // useEffect(() => {
-  //   incrementViews(); // 조회수가 증가하도록 호출
-  // }, [views]);
+    fetchViews();
+  }, []); // 빈 의존성 배열로, 컴포넌트 첫 로드 시에만 실행
 
   return <span>{views}</span>;
 };

@@ -6,7 +6,7 @@ const Sidebar = () => {
   return (
     <div className="bg-neutral-300 h-3/4 w-1/5 fixed top-0 left-0 flex flex-col text-center p-3 gap-4">
       <div>
-        TODAY: <PageViewCounter /> {/* 조회수 컴포넌트를 사용하여 조회수를 표시 */}
+        TODAY: <PageViewCounter />
       </div>
       <div className="bg-white p-3 rounded-lg">
         <div>
