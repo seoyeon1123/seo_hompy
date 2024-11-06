@@ -1,6 +1,6 @@
 // Sidebar.jsx
 import profile from '../../public/profile.jpg';
-import PageViewCounter from './PageViewCount';
+import PageViewCounter from '../components/PageViewCount';
 
 const Sidebar = () => {
   return (
