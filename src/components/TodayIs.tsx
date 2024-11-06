@@ -28,7 +28,12 @@ const TodayIs = () => {
   }, []);
 
   const toggleModal = () => {
-    setIsModalOpen((prev) => !prev);
+    if (isSaved) {
+      // 이미 저장된 기분이 있다면 알림을 띄운다
+      alert('오늘의 기분은 이미 저장되었습니다!');
+    } else {
+      setIsModalOpen((prev) => !prev);
+    }
   };
 
   const handleOptionSelect = async (option: string) => {
@@ -61,8 +66,9 @@ const TodayIs = () => {
         </span>
       </div>
 
-      {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+      {/* 모달이 열리기 전에 isSaved가 false인 경우에만 열도록 조건 추가 */}
+      {isModalOpen && !isSaved && (
+        <div className="fixed inset-0 z-40 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-4 rounded-md shadow-md w-64">
             <h2 className="text-center font-bold mb-2">오늘의 기분 선택</h2>
             <ul className="flex flex-col gap-2">
