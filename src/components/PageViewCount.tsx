@@ -3,10 +3,12 @@ import supabase from '../supabaseClient';
 
 const PageViewCounter = () => {
   const [views, setViews] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
   const pageId = 'view';
   const today = new Date().toISOString().split('T')[0];
 
   const fetchViews = async () => {
+    setIsLoading(true);
     try {
       const { data, error } = await supabase
         .from('page_views')
@@ -29,6 +31,7 @@ const PageViewCounter = () => {
         await createNewViewEntry(newViewsCount);
         setViews(newViewsCount);
       }
+      setIsLoading(false);
     } catch (error) {
       console.error('Failed to fetch page views:', error);
     }
@@ -85,7 +88,7 @@ const PageViewCounter = () => {
     fetchViews();
   }, []);
 
-  return <span>{views}</span>;
+  return <>{isLoading ? <span className="text-pink-600 font-bold">・ ・ ・</span> : <span>{views}</span>}</>;
 };
 
 export default PageViewCounter;
