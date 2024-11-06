@@ -54,9 +54,9 @@ const Home = () => {
               <h2 className="text-blue-500 text-2xl">기술 스택</h2>
               <div className="border-t border-gray-300 my-2 border-dashed" />
               <DragDropContext onDragEnd={handleDragEnd}>
-                <Droppable droppableId="badges">
+                <Droppable droppableId="badges" direction="horizontal">
                   {(provided) => (
-                    <div className="grid grid-cols-4 gap-2" ref={provided.innerRef} {...provided.droppableProps}>
+                    <div className="flex flex-wrap gap-3" ref={provided.innerRef} {...provided.droppableProps}>
                       {badges.map((badge, index) => (
                         <Draggable key={`draggable-${index}`} draggableId={`badge-${index}`} index={index}>
                           {(provided) => (
@@ -66,7 +66,7 @@ const Home = () => {
                               {...provided.dragHandleProps}
                               className="transition-transform duration-200 ease-in-out"
                             >
-                              <img src={badge} alt={`badge-${index}`} />
+                              <img src={badge} alt={`badge-${index}`} className="cursor-pointer" />
                             </div>
                           )}
                         </Draggable>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import 운동감자 from '../assets/운동감자.png';
 import { AnimatePresence, motion } from 'framer-motion';
+import ProjectDetails from '../components/ProjectDetail';
 
 const Project = () => {
   const [clickedProject, setClickedProject] = useState<number | null>(null);
@@ -16,21 +17,21 @@ const Project = () => {
       id: 2,
       title: '두번째 프로젝트',
       name: '프로젝트 2',
-      image: '프로젝트2_이미지', // 실제 이미지로 변경
+      image: '프로젝트2_이미지',
       description: '두번째 프로젝트에 대한 설명입니다.',
     },
     {
       id: 3,
       title: '세번째 프로젝트',
       name: '프로젝트 3',
-      image: '프로젝트3_이미지', // 실제 이미지로 변경
+      image: '프로젝트3_이미지',
       description: '세번째 프로젝트에 대한 설명입니다.',
     },
     {
       id: 4,
       title: '네번째 프로젝트',
       name: '프로젝트 4',
-      image: '프로젝트4_이미지', // 실제 이미지로 변경
+      image: '프로젝트4_이미지',
       description: '네번째 프로젝트에 대한 설명입니다.',
     },
   ];
@@ -72,16 +73,11 @@ const Project = () => {
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="w-3/5 h-3/5 bg-white p-5 rounded-lg border border-b border-black">
-                <h2 className="text-2xl font-bold">{projectDetails[clickedProject - 1].title}</h2>
-                <p>{projectDetails[clickedProject - 1].description}</p>
-                <button
-                  className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
-                  onClick={() => setClickedProject(null)} // 닫기 버튼 클릭 시 모달 닫기
-                >
-                  닫기
-                </button>
-              </div>
+              <ProjectDetails
+                title={projectDetails[clickedProject - 1].title}
+                description={projectDetails[clickedProject - 1].description}
+                onClose={() => setClickedProject(null)}
+              />
             </motion.div>
           )}
         </AnimatePresence>

@@ -4,7 +4,7 @@ import '../index.css'; // 스타일을 불러옵니다.
 const Navigation = () => {
   return (
     <nav>
-      <ul className="flex flex-col items-center justify-center gap-2">
+      <ul className="flex flex-col items-center justify-center gap-2 ">
         <li className="nav-item flex items-center justify-center">
           <Link to="/">홈</Link>
         </li>
