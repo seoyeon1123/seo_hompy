@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src", // src 폴더를 기준으로 모듈을 찾도록 설정
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"]
     }
   },
   "files": [],
