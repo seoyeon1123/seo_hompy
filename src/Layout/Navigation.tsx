@@ -1,21 +1,23 @@
-import { Link } from 'react-router-dom';
-import '../index.css'; // 스타일을 불러옵니다.
-
 const Navigation = () => {
   return (
-    <nav>
-      <ul className="flex flex-col items-center justify-center gap-2">
-        <li className="nav-item flex items-center justify-center">
-          <Link to="/">홈</Link>
-        </li>
-        <li className="nav-item flex items-center justify-center">
-          <Link to="/project">프로젝트</Link>
-        </li>
-        <li className="nav-item flex items-center justify-center">
-          <Link to="/guestbook">방명록</Link>
-        </li>
-      </ul>
-    </nav>
+    <>
+      <nav className="bg-[#16423C] shadow-md w-full top-0 z-10">
+        <div className="container mx-auto  py-5 flex justify-start items-center gap-4">
+          <a
+            href="https://github.com/seoyeon1123"
+            className="text-white hover:text-[#6A9C89] hover:text-shadow-lg transition"
+          >
+            <h1 className="text-lg font-semibold">GitHub</h1>
+          </a>
+          <a
+            href="https://velog.io/@leeeee/posts"
+            className="text-white hover:text-[#6A9C89] hover:text-shadow-lg  transition"
+          >
+            <h1 className="text-lg font-semibold">Velog</h1>
+          </a>
+        </div>
+      </nav>
+    </>
   );
 };
 

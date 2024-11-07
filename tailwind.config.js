@@ -10,12 +10,8 @@ module.exports = {
         GowunDodum_Regular: ['GowunDodum-Regular'],
         NoonnuBasicGothicRegular: ['NoonnuBasicGothicRegular'],
       },
-      textShadow: {
-        xs: '0 1px 2px var(--tw-shadow-color)',
-        sm: '0 2px 4px var(--tw-shadow-color)',
-        base: '0 4px 8px var(--tw-shadow-color)',
-        md: '0 8px 16px var(--tw-shadow-color)',
-        lg: '0 12px 24px var(--tw-shadow-color)',
+      boxShadow: {
+        text: '0 0 10px rgba(0, 0, 0, 0.7)', // 텍스트에 그림자 효과
       },
     },
   },

@@ -8,8 +8,7 @@ import { Reset } from 'styled-reset';
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Reset />
-    <div className="font-ttbookend">
-      <App />
-    </div>
+
+    <App />
   </StrictMode>,
 );
