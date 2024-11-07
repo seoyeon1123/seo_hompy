@@ -1,7 +1,7 @@
 const Navigation = () => {
   return (
     <>
-      <nav className="bg-[#16423C] shadow-md w-full left-0 z-10">
+      <nav className="bg-[#16423C] shadow-md w-full left-0 z-10 fixed">
         <div className="w-full py-5 flex justify-start items-center gap-4 px-10">
           <a
             href="https://github.com/seoyeon1123"
