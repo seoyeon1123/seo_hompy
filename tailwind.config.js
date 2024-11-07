@@ -14,6 +14,12 @@ module.exports = {
         text: '0 0 10px rgba(0, 0, 0, 0.7)', // 텍스트에 그림자 효과
       },
     },
+
+    screens: {
+      sm: { min: '390px', max: '819px' },
+      md: { min: '820px', max: '1023px' },
+      lg: { min: '1080px' },
+    },
   },
   plugins: [
     require('tailwindcss-textshadow'), // 플러그인 추가
