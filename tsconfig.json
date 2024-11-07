@@ -2,9 +2,8 @@
   "compilerOptions": {
     "baseUrl": "./src", // src 폴더를 기준으로 모듈을 찾도록 설정
     "paths": {
-      "*": ["node_modules/*", "src/*"] // src 폴더를 포함하여 node_modules도 찾도록 설정
-    },
-    "moduleResolution": "node" // node 방식으로 모듈을 해석하도록 설정
+      "@/*": ["./src/*"]
+    }
   },
   "files": [],
   "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
