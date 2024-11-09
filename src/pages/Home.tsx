@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import profile from '../assets/main/IMG_6067.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,17 +9,24 @@ const Home = () => {
   const [firstTextVisible, setFirstTextVisible] = useState(false);
   const [secondTextVisible, setSecondTextVisible] = useState(false);
   const [thirdTextVisible, setThirdTextVisible] = useState(false);
+  const [scrollable, setScrollable] = useState(false); // 스크롤 가능 여부 상태 추가
 
   const aboutRef = useRef<HTMLDivElement>(null);
 
   const handleClick = () => {
-    if (aboutRef.current) {
+    if (thirdTextVisible && aboutRef.current) {
       aboutRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
+  useEffect(() => {
+    if (thirdTextVisible) {
+      setScrollable(true); // 애니메이션이 다 끝나면 스크롤 가능하도록 설정
+    }
+  }, [thirdTextVisible]);
+
   return (
-    <div className="h-screen overflow-y-auto">
+    <div className={`h-screen ${scrollable ? 'overflow-y-auto' : 'overflow-hidden'}`}>
       <div className="flex flex-col items-center justify-center gap-5 h-screen bg-[#16423C] text-white relative">
         {firstTextVisible && (
           <motion.div
@@ -84,7 +91,6 @@ const Home = () => {
           </motion.div>
         )}
       </div>
-
       <div ref={aboutRef}>
         <About />
       </div>

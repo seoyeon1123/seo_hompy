@@ -44,7 +44,7 @@ const About = () => (
       </motion.div>
     </div>
     <div>
-      <h2 className="text-4xl sm:text-6xl font-bold mb-4w text-[#16423C] text-shadow-md text-center">
+      <h2 className="text-4xl sm:text-3xl font-bold mb-4w text-[#16423C] text-shadow-md text-center">
         무엇을 잘하나요?
       </h2>
     </div>
