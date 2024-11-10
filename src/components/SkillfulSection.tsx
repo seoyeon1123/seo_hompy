@@ -44,7 +44,7 @@ export default function SkillfulSection() {
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }}>
         {activeTab === 'Front-End' && (
           <div className="mb-6">
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-wrap gap-4 justify-center transition-transform">
               <img
                 src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white"
                 alt="JavaScript"
@@ -87,7 +87,7 @@ export default function SkillfulSection() {
 
         {activeTab === 'Back-End' && (
           <div className="mb-6">
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-wrap gap-4 justify-center transition-transform">
               <img
                 src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=white"
                 alt="Firebase"
@@ -102,7 +102,7 @@ export default function SkillfulSection() {
 
         {activeTab === 'Tools' && (
           <div className="mb-6">
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-wrap gap-4 justify-center transition-transform">
               <img
                 src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white"
                 alt="Git"

@@ -56,7 +56,7 @@ const About = () => {
           >
             <Card
               title="앞으로의 목표는 무엇인가요?"
-              content="기술적으로는 React와 JavaScript를 깊이 있게 이해하고, TypeScript와 같은 다양한 기술 스택을 익히는 것이 목표입니다."
+              content="기술적으로는 JavaScript와 React, Next.Js를 깊이 있게 이해하고, TypeScript와 같은 다양한 기술 스택을 익히는 것이 목표입니다."
               secondContent="또한, UI/UX 디자인에 대한 이해도를 높여 사용자의 니즈를 반영한 더 나은 웹 경험을 제공하는 것이 꿈입니다. 앞으로도 다양한 프로젝트에 참여하며 실력을 쌓아가고 싶습니다!"
             />
           </motion.div>

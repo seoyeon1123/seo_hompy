@@ -4,6 +4,7 @@ import profile from '../assets/main/IMG_6067.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesDown } from '@fortawesome/free-solid-svg-icons';
 import About from './About';
+import Project from './Project';
 
 const Home = () => {
   const [firstTextVisible, setFirstTextVisible] = useState(false);
@@ -94,6 +95,7 @@ const Home = () => {
       <div ref={aboutRef}>
         <About />
       </div>
+      <Project />
     </div>
   );
 };

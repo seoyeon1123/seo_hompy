@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .feature-item {
+    @apply border border-black border-solid px-2 rounded-xl text-center w-full;
+  }
+}
