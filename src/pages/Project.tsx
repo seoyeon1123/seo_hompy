@@ -17,11 +17,11 @@ const Project = () => {
         <div className="mt-6 flex justify-center flex-row sm:flex-col gap-6 sm:gap-4 w-full max-w-7xl">
           <Swiper
             spaceBetween={20}
-            slidesPerView={1} // 한 번에 한 슬라이드만 표시
+            slidesPerView={1}
             loop={true}
-            navigation={true} // 네비게이션 버튼 활성화
-            pagination={{ clickable: true }} // 페이지네이션 버튼 활성화
-            autoplay={{ delay: 3000 }} // 3초마다 자동 슬라이드
+            navigation={true}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 3000 }}
             modules={[Navigation, Pagination, Autoplay]}
             className="w-full max-w-2xl sm:max-w-sm sm:h-auto"
           >

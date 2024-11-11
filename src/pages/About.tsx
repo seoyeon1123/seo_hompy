@@ -8,7 +8,7 @@ const About = () => {
   const [secondVisible, setSecondVisible] = useState(false);
 
   return (
-    <div className="flex flex-col pt-28 h-full bg-[#E9EFEC] p-6 md:p-10 gap-8 ">
+    <div className="flex flex-col pt-28 h-svh sm:h-full bg-[#E9EFEC] p-6 md:p-10 gap-8 ">
       <motion.h1
         transition={{ duration: 1 }}
         initial={{ opacity: 0, y: 50 }}
