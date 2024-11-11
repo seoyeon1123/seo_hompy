@@ -20,7 +20,6 @@ const About = () => {
         About Me
       </motion.h1>
 
-      {/* 나머지 카드들 */}
       {firstVisible && (
         <div className="flex flex-row sm:flex-col sm:gap-6 gap-8 items-center mb-12">
           <motion.div
@@ -63,7 +62,6 @@ const About = () => {
         </div>
       )}
 
-      {/* SkillfulSection은 첫 번째 애니메이션이 완료된 후에만 표시 */}
       {secondVisible && <SkillfulSection />}
     </div>
   );
