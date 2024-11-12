@@ -1,23 +1,33 @@
-const Navigation = () => {
+// Navigation.tsx
+interface NavigationProps {
+  scrollToSection: (sectionId: string) => void;
+  activeSection: 'project' | 'education' | 'connect';
+}
+
+const Navigation = ({ scrollToSection, activeSection }: NavigationProps) => {
   return (
-    <>
-      <nav className="bg-[#16423C] shadow-md w-full left-0 z-10 fixed">
-        <div className="w-full py-5 flex justify-start items-center gap-4 px-10">
-          <a
-            href="https://github.com/seoyeon1123"
-            className="text-white hover:text-[#6A9C89] hover:text-shadow-lg transition"
-          >
-            <h1 className="text-lg font-semibold">GitHub</h1>
-          </a>
-          <a
-            href="https://velog.io/@leeeee/posts"
-            className="text-white hover:text-[#6A9C89] hover:text-shadow-lg transition"
-          >
-            <h1 className="text-lg font-semibold">Velog</h1>
-          </a>
-        </div>
-      </nav>
-    </>
+    <div className="bg-[#16423C] text-[#E9EFEC] p-8 sticky top-0 z-20">
+      <div className="flex gap-4 *:text-3xl">
+        <button
+          onClick={() => scrollToSection('project')}
+          className={`${activeSection === 'project' ? 'text-[#E9EFEC]' : 'text-gray-500'}`}
+        >
+          Project
+        </button>
+        <button
+          onClick={() => scrollToSection('education')}
+          className={`${activeSection === 'education' ? 'text-[#E9EFEC]' : 'text-gray-500'}`}
+        >
+          Education
+        </button>
+        <button
+          onClick={() => scrollToSection('connect')}
+          className={`${activeSection === 'connect' ? 'text-[#E9EFEC]' : 'text-gray-500'}`}
+        >
+          Connect
+        </button>
+      </div>
+    </div>
   );
 };
 

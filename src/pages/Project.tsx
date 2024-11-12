@@ -19,7 +19,7 @@ const Project = () => {
   const [projects, setProjects] = useState<Project[]>([]);
 
   const fetchProjectsFromSupabase = async () => {
-    const { data: projects, error } = await supabase.from('projects').select('*');
+    const { data: projects, error } = await supabase.from('projects').select('*').order('id', { ascending: true }); // 'id' 순서대로 정렬;
 
     if (error) {
       console.error('Error fetching projects:', error);
@@ -34,9 +34,7 @@ const Project = () => {
   }, []);
 
   return (
-    <div className="flex flex-col pt-28 min-h-screen bg-[#16423C] px-6 py-8 gap-12">
-      <h1 className="text-[#E9EFEC] text-6xl font-bold mb-6">Project</h1>
-
+    <div className="flex flex-col h-svh bg-[#16423C] px-6 py-8 gap-12 pt-28 ">
       {projects.length > 0 ? (
         <Swiper
           spaceBetween={20} // 슬라이드 간의 간격

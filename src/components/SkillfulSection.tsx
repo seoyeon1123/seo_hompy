@@ -12,7 +12,7 @@ export default function SkillfulSection() {
         animate={{ opacity: 1, y: 0 }}
         className="text-6xl sm:text-5xl font-bold mb-8 text-[#16423C] text-shadow-md"
       >
-        SKILLFUL
+        Skill & Tools
       </motion.h2>
 
       <motion.div
