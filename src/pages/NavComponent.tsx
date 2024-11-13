@@ -18,19 +18,18 @@ const NavComponent = () => {
     };
 
     const options = {
-      root: null, // viewport를 root로 설정
+      root: null,
       rootMargin: '0px',
-      threshold: 0.6, // 요소가 60% 보일 때 활성화
+      threshold: 0.1, // 요소가 10%만 보이더라도 활성화
     };
 
     const observer = new IntersectionObserver(handleIntersection, options);
 
-    // 관찰할 섹션들을 가져와서 observer에 등록
     const sections = document.querySelectorAll('#project, #education, #connect');
     sections.forEach((section) => observer.observe(section));
 
     return () => {
-      sections.forEach((section) => observer.unobserve(section)); // 컴포넌트 언마운트 시 observer 해제
+      sections.forEach((section) => observer.unobserve(section));
     };
   }, []);
 
@@ -38,7 +37,7 @@ const NavComponent = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setActiveSection(sectionId); // 클릭된 섹션을 active로 설정
+      setActiveSection(sectionId);
     }
   };
 
@@ -46,13 +45,13 @@ const NavComponent = () => {
     <div>
       <Navigation scrollToSection={scrollToSection} activeSection={activeSection} />
 
-      <div id="project" className="h-screen">
+      <div id="project" className="h-full">
         <Project />
       </div>
-      <div id="education" className="h-screen">
+      <div id="education" className="h-full">
         <Education />
       </div>
-      <div id="connect" className="h-screen">
+      <div id="connect" className="h-full">
         <Connect />
       </div>
     </div>

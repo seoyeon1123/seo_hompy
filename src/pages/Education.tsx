@@ -6,10 +6,10 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 const Education = () => {
   return (
     <>
-      <div className="min-h-screen bg-[#E9EFEC] py-28 flex flex-col justify-center">
-        <div className="flex flex-row px-10 justify-center sm:flex-col">
+      <div className=" bg-[#E9EFEC] py-28 flex flex-col justify-center sm:gap-4">
+        <div className="flex flex-row px-10 justify-center sm:flex-col sm:items-center sm:gap-2 sm:w-full">
           <div className="flex flex-col justify-center items-center gap-2 w-96">
-            <h1 className="text-4xl">
+            <h1 className="text-4xl sm:text-center">
               서경대학교 <br />
               아동학과 졸업
             </h1>
@@ -17,7 +17,7 @@ const Education = () => {
           </div>
           <div className="border border-r border-solid border-neutral-400 mr-8" />
           <div className="w-3/4 flex justify-center items-center">
-            <p className="leading-relaxed text-[#16423C]">
+            <p className="leading-relaxed text-[#16423C] ">
               서경대학교 아동학과에 진학해 4년 동안 휴학 없이 성실히 학업을 마쳤고, 졸업 후에는 삼성 직장 어린이집에서
               1년간 보육교사로 근무했습니다. 이 경험을 통해 책임감과 소통 능력을 키웠으며, <br />
               아이들과의 소중한 교감을 쌓을 수 있었습니다. 현재는 새로운 도전을 위해 개발자로서의 커리어를 준비하며 기술
@@ -25,7 +25,7 @@ const Education = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-row  px-10 justify-center sm:flex-col">
+        <div className="flex flex-row  px-10 justify-center sm:flex-col  sm:items-center sm:gap-2">
           <div className="flex flex-col justify-center items-center gap-2 w-96">
             <h1 className="text-4xl">
               프로젝트 캠프 <br /> : Next.js 3기
@@ -33,7 +33,7 @@ const Education = () => {
             <p className="text-neutral-500">기간 : 2024.09.20 ~ 2024.11.01</p>
           </div>
           <div className="border border-r border-solid border-neutral-400 mr-8" />
-          <div className="w-3/4 flex flex-row justify-center items-center">
+          <div className="w-3/4 flex flex-row justify-center items-center sm:flex-col ">
             <p className="leading-relaxed text-[#16423C]">
               2주간의 사전 직무 교육을 거쳐 본격적인 프로젝트를 진행하였으며, 팀장으로서 KT 요금제 프로젝트를 성공적으로
               이끌었습니다. 저희 팀은 3기 중 우수팀으로 선정되어 최종 발표회를 진행하였고, 저 또한 우수 수료생으로
@@ -60,9 +60,9 @@ const Education = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-row  px-10 justify-center ">
+        <div className="flex flex-row  px-10 justify-center  sm:flex-col sm:items-center sm:gap-2">
           <div className="flex flex-col justify-center items-center gap-2 w-96">
-            <h1 className="text-4xl ">
+            <h1 className="text-4xl sm:text-center ">
               [코드잇 스프린트]
               <br /> 프론트엔드 <br />
               단기심화 6기
