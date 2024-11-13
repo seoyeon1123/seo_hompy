@@ -6,7 +6,7 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 const Education = () => {
   return (
     <>
-      <div className=" bg-[#E9EFEC] py-28 flex flex-col justify-center sm:gap-4">
+      <div className=" bg-[#E9EFEC] py-28 flex flex-col justify-center sm:gap-4 min-h-screen">
         <div className="flex flex-row px-10 justify-center sm:flex-col sm:items-center sm:gap-2 sm:w-full">
           <div className="flex flex-col justify-center items-center gap-2 w-96">
             <h1 className="text-4xl sm:text-center">

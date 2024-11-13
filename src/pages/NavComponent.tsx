@@ -20,7 +20,7 @@ const NavComponent = () => {
     const options = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.1, // 요소가 10%만 보이더라도 활성화
+      threshold: 0.9,
     };
 
     const observer = new IntersectionObserver(handleIntersection, options);
@@ -48,7 +48,7 @@ const NavComponent = () => {
       <div id="project" className="h-full">
         <Project />
       </div>
-      <div id="education" className="h-full">
+      <div id="education" className="h-full ">
         <Education />
       </div>
       <div id="connect" className="h-full">
