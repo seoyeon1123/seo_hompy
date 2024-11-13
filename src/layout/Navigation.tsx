@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface NavigationProps {
   scrollToSection: (sectionId: 'project' | 'education' | 'connect') => void;
   activeSection: 'project' | 'education' | 'connect';
