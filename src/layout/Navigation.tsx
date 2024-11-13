@@ -1,13 +1,14 @@
-// Navigation.tsx
+import React from 'react';
+
 interface NavigationProps {
-  scrollToSection: (sectionId: string) => void;
+  scrollToSection: (sectionId: 'project' | 'education' | 'connect') => void;
   activeSection: 'project' | 'education' | 'connect';
 }
 
 const Navigation = ({ scrollToSection, activeSection }: NavigationProps) => {
   return (
     <div className="bg-[#16423C] text-[#E9EFEC] p-8 sticky top-0 z-20">
-      <div className="flex gap-4 *:text-3xl">
+      <div className="flex gap-4 text-3xl">
         <button
           onClick={() => scrollToSection('project')}
           className={`${activeSection === 'project' ? 'text-[#E9EFEC]' : 'text-gray-500'}`}

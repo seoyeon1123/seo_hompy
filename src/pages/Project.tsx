@@ -34,7 +34,7 @@ const Project = () => {
   }, []);
 
   return (
-    <div className="flex flex-col h-svh bg-[#16423C] px-6 py-8 gap-12 pt-28 ">
+    <div className="flex flex-col  bg-[#16423C] px-6 py-8 gap-12 pt-28 ">
       {projects.length > 0 ? (
         <Swiper
           spaceBetween={20} // 슬라이드 간의 간격
