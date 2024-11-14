@@ -51,11 +51,11 @@ const Connect = () => {
     <div className="bg-[#16423C] pt-28 p-8 shadow-lg min-h-screen flex flex-col justify-center items-center">
       <motion.div
         className="flex flex-col justify-center items-center"
-        initial={{ opacity: 0, y: 50 }} // 처음에 화면에 보이지 않게 설정
-        whileInView={{ opacity: 1, y: 0 }} // 뷰포트에 들어오면 애니메이션 실행
-        exit={{ opacity: 0, y: -50 }} // 나갈 때 애니메이션
-        transition={{ duration: 0.8 }} // 애니메이션 속도
-        viewport={{ once: true }} // 처음 한번만 애니메이션 실행 (스크롤 후 다시 실행되지 않음)
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -50 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
       >
         <h2 className="text-5xl font-bold text-[#E9EFEC] mb-6 text-center">Leave a Message!</h2>
         <p className="text-gray-400 text-center mb-10">
@@ -98,14 +98,13 @@ const Connect = () => {
           </a>
         </div>
 
-        {/* 방명록 폼 */}
         <form onSubmit={handleSubmit} className="space-y-6 max-w-lg mx-auto">
           <input
             type="text"
             name="name"
             value={formData.name}
             onChange={handleChange}
-            placeholder="당신은 누구인가요??"
+            placeholder="당신은 누구인가요?"
             required
             className="w-full p-3 border border-gray-600 bg-[#1B524C] rounded-lg text-[#E9EFEC] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E9EFEC]"
           />
@@ -114,7 +113,7 @@ const Connect = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder="당신의 연락처는 (선택사항 입니다 :)"
+            placeholder="당신의 연락처는? (선택사항 입니다 :)"
             className="w-full p-3 border border-gray-600 bg-[#1B524C] rounded-lg text-[#E9EFEC] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E9EFEC]"
           />
           <textarea
@@ -128,7 +127,7 @@ const Connect = () => {
           />
           <button
             type="submit"
-            className="w-full hover:bg-[#0a312d] text-white py-3 rounded-lg bg-[#10413c] transition"
+            className="w-full hover:bg-[#0a312d] text-white py-3 rounded-lg bg-[#1B524C] transition"
           >
             Leave Message
           </button>
@@ -141,7 +140,7 @@ const Connect = () => {
           onClick={toggleModal}
           className="text-3xl font-bold mb-6 text-center mt-10 cursor-pointer transition  text-white px-6 py-3 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transform duration-300"
         >
-          방명록
+          방명록 보러 가실래요?
         </h3>
 
         {/* Guestbook 팝업 */}
