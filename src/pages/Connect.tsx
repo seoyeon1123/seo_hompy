@@ -6,17 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion'; // motion 임포트
 
-// 방명록 항목 타입 정의
-interface GuestbookEntry {
-  id: number;
-  name: string;
-  email: string;
-  message: string;
-  created_at: string; // 또는 날짜 타입
-}
-
 const Connect = () => {
-  const [guestbookEntries, setGuestbookEntries] = useState<GuestbookEntry[]>([]);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [error, setError] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false); // 팝업창 상태 관리
@@ -39,10 +29,6 @@ const Connect = () => {
 
         if (error) {
           throw error;
-        }
-
-        if (data) {
-          setGuestbookEntries((prevEntries) => [...prevEntries, data]);
         }
 
         // 폼 초기화
