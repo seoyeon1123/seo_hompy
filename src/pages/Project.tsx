@@ -1,14 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import ProjectCard from '../components/ProjectCard';
 import supabase from '../supabaseClient';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules'; // 네비게이션 모듈 추가
+import { Navigation } from 'swiper/modules';
 
 interface Project {
   id: number;
   title: string;
   period: string;
-  images: { src: string; alt: string }[]; // images 필드 타입 정의
+  images: { src: string; alt: string }[];
   description: string[];
   github_url: string;
   features: string[];
@@ -17,10 +18,11 @@ interface Project {
 
 const Project = () => {
   const [projects, setProjects] = useState<Project[]>([]);
+  const [isVisible, setIsVisible] = useState(false);
+  const projectRef = useRef<HTMLDivElement | null>(null);
 
   const fetchProjectsFromSupabase = async () => {
-    const { data: projects, error } = await supabase.from('projects').select('*').order('id', { ascending: true }); // 'id' 순서대로 정렬;
-
+    const { data: projects, error } = await supabase.from('projects').select('*').order('id', { ascending: true });
     if (error) {
       console.error('Error fetching projects:', error);
     } else {
@@ -28,28 +30,55 @@ const Project = () => {
     }
   };
 
-  // 컴포넌트가 마운트될 때 데이터를 가져옵니다.
   useEffect(() => {
     fetchProjectsFromSupabase();
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 },
+    );
+
+    if (projectRef.current) {
+      observer.observe(projectRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="flex flex-col  bg-[#16423C] px-6 py-8 gap-12 pt-28 ">
+    <div className="flex flex-col bg-[#16423C] px-6 py-8 gap-12 pt-28" ref={projectRef}>
       {projects.length > 0 ? (
-        <Swiper
-          spaceBetween={20} // 슬라이드 간의 간격
-          slidesPerView={1} // 한 번에 보여줄 슬라이드 수
-          loop={false} // 루프 없이
-          navigation={true} // 네비게이션 버튼 활성화
-          modules={[Navigation]} // 네비게이션 모듈 추가
-          className="w-full" // Swiper에 전체 너비 설정
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          transition={{
+            type: 'spring',
+            stiffness: 30,
+            damping: 15,
+          }}
         >
-          {projects.map((project) => (
-            <SwiperSlide key={project.id}>
-              <ProjectCard {...project} /> {/* 각 프로젝트 카드 렌더링 */}
-            </SwiperSlide>
-          ))}
-        </Swiper>
+          <Swiper
+            spaceBetween={20}
+            slidesPerView={1}
+            loop={false}
+            navigation={true}
+            modules={[Navigation]}
+            className="w-full"
+          >
+            {projects.map((project) => (
+              <SwiperSlide key={project.id}>
+                <ProjectCard {...project} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </motion.div>
       ) : (
         <p className="text-[#E9EFEC]">No projects available.</p>
       )}
