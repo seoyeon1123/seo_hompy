@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaGithub, FaEnvelope, FaBloggerB, FaInstagram, FaChevronDown } from 'react-icons/fa';
+import { FaGithub, FaEnvelope, FaBloggerB, FaInstagram } from 'react-icons/fa';
 import supabase from '../supabaseClient';
 import Guestbook from '../components/Guestbook';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
