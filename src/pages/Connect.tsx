@@ -31,6 +31,8 @@ const Connect = () => {
           throw error;
         }
 
+        // Log the inserted data
+        console.log('Inserted data:', data);
         // 폼 초기화
         setFormData({ name: '', email: '', message: '' });
         setError(null);
@@ -109,7 +111,7 @@ const Connect = () => {
           />
           <input
             type="text"
-            name="text"
+            name="email"
             value={formData.email}
             onChange={handleChange}
             placeholder="당신의 연락처는 (선택사항 입니다 :)"
