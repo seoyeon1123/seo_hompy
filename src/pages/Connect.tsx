@@ -33,6 +33,8 @@ const Connect = () => {
           .insert([{ name: formData.name, email: formData.email, message: formData.message }])
           .single();
 
+        console.log(data);
+
         if (error) {
           throw error;
         }
