@@ -9,10 +9,10 @@ const Education = () => {
   const { ref: sectionRef1, inView: inView1 } = useInView({ triggerOnce: true, threshold: 0.5 });
   const { ref: sectionRef2, inView: inView2 } = useInView({ triggerOnce: true, threshold: 0.5 });
   const { ref: sectionRef3, inView: inView3 } = useInView({ triggerOnce: true, threshold: 0.5 });
+  const { ref: sectionRef4, inView: inView4 } = useInView({ triggerOnce: true, threshold: 0.5 });
 
   return (
     <div className="bg-[#E9EFEC] py-28 flex flex-col justify-center sm:gap-4 min-h-screen">
-      {/* 첫 번째 섹션 */}
       <motion.div
         transition={{ duration: 1 }}
         initial={{ opacity: 0, y: 50 }}
@@ -20,7 +20,7 @@ const Education = () => {
         className="flex flex-row px-10 justify-center sm:flex-col sm:items-center sm:gap-2 sm:w-full"
         ref={sectionRef1}
       >
-        <div className="flex flex-col justify-center items-center gap-2 w-96">
+        <div className="flex flex-col justify-center items-center gap-2 w-96 pb-10">
           <h1 className="text-4xl sm:text-center">
             서경대학교 <br />
             아동학과 졸업
@@ -29,7 +29,7 @@ const Education = () => {
         </div>
         <div className="border border-r border-solid border-neutral-400 mr-8" />
         <div className="w-3/4 flex justify-center items-center">
-          <p className="leading-relaxed text-[#16423C]">
+          <p className="leading-relaxed text-[#16423C] pb-10 ">
             서경대학교 아동학과에 진학해 4년 동안 휴학 없이 성실히 학업을 마쳤고, 졸업 후에는 삼성 직장 어린이집에서
             1년간 보육교사로 근무했습니다. 이 경험을 통해 책임감과 소통 능력을 키웠으며, <br />
             아이들과의 소중한 교감을 쌓을 수 있었습니다. 현재는 새로운 도전을 위해 개발자로서의 커리어를 준비하며 기술
@@ -37,16 +37,41 @@ const Education = () => {
           </p>
         </div>
       </motion.div>
-
-      {/* 두 번째 섹션 */}
       <motion.div
-        transition={{ duration: 1, delay: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
         initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: inView2 ? 1 : 0, y: inView2 ? 0 : 50 }}
-        className="flex flex-row px-10 justify-center sm:flex-col sm:items-center sm:gap-2"
+        animate={{ opacity: inView1 ? 1 : 0, y: inView2 ? 0 : 50 }}
+        className="flex flex-row px-10 justify-center sm:flex-col sm:items-center sm:gap-2 sm:w-full "
         ref={sectionRef2}
       >
         <div className="flex flex-col justify-center items-center gap-2 w-96">
+          <h1 className="text-4xl sm:text-center">
+            독학 공부 시작 <br />
+          </h1>
+          <p className="text-neutral-500">기간 : 2024.05.01 ~ ing</p>
+        </div>
+        <div className="border border-r border-solid border-neutral-400 mr-8" />
+        <div className="w-3/4 flex justify-center items-center">
+          <p className="leading-relaxed text-[#16423C] ">
+            인프런과 노마드코더에서 제공하는 다양한 강의를 통해 웹 개발을 체계적으로 학습했습니다. HTML과 CSS를 시작으로
+            JavaScript 강의를 수강하며 기초를 다졌고, 이후 React 강의를 통해 클론 코딩 프로젝트(S-FLEX)를 진행하며
+            React에 대한 심도 있는 이해를 쌓았습니다. 이를 바탕으로 Next.js 강의에 도전하였고, 캐럿마켓 클론 코딩
+            프로젝트를 수행하며 실무에 가까운 경험을 쌓았습니다. 이 과정에서 개인적인 아이디어인 '운동감자'라는 웹
+            서비스를 기획하고, Next.js를 활용해 직접 개발하며 Next.js의 다양한 기능과 실용성을 깊이 체득하는 소중한
+            시간을 가졌습니다. 이를 통해 프로젝트의 기획부터 구현까지 전 과정을 경험하며, 개발자로서의 역량을 한층 더
+            강화할 수 있었습니다.
+          </p>
+        </div>
+      </motion.div>
+
+      <motion.div
+        transition={{ duration: 1, delay: 1 }}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: inView2 ? 1 : 0, y: inView3 ? 0 : 50 }}
+        className="flex flex-row px-10 justify-center sm:flex-col sm:items-center sm:gap-2"
+        ref={sectionRef3}
+      >
+        <div className="flex flex-col justify-center items-center gap-2 w-96 ">
           <h1 className="text-4xl">
             프로젝트 캠프 <br /> : Next.js 3기
           </h1>
@@ -81,13 +106,12 @@ const Education = () => {
         </div>
       </motion.div>
 
-      {/* 세 번째 섹션 */}
       <motion.div
-        transition={{ duration: 1, delay: 2 }}
+        transition={{ duration: 1, delay: 1.5 }}
         initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: inView3 ? 1 : 0, y: inView3 ? 0 : 50 }}
+        animate={{ opacity: inView3 ? 1 : 0, y: inView4 ? 0 : 50 }}
         className="flex flex-row px-10 justify-center sm:flex-col sm:items-center sm:gap-2"
-        ref={sectionRef3}
+        ref={sectionRef4}
       >
         <div className="flex flex-col justify-center items-center gap-2 w-96">
           <h1 className="text-4xl sm:text-center ">

@@ -1,15 +1,22 @@
 import { useState } from 'react';
-import { FaGithub, FaEnvelope, FaBloggerB, FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaEnvelope, FaBloggerB, FaInstagram, FaBook } from 'react-icons/fa';
 import supabase from '../supabaseClient';
 import Guestbook from '../components/Guestbook';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
-import { motion } from 'framer-motion'; // motion 임포트
+import { motion } from 'framer-motion';
 
 const Connect = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [error, setError] = useState<string | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false); // 팝업창 상태 관리
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -21,7 +28,6 @@ const Connect = () => {
 
     if (formData.name && formData.message) {
       try {
-        // Supabase에 데이터 삽입
         const { data, error } = await supabase
           .from('guestbook_entries')
           .insert([{ name: formData.name, email: formData.email, message: formData.message }])
@@ -31,9 +37,6 @@ const Connect = () => {
           throw error;
         }
 
-        // Log the inserted data
-        console.log('Inserted data:', data);
-        // 폼 초기화
         setFormData({ name: '', email: '', message: '' });
         setError(null);
       } catch (error) {
@@ -42,13 +45,12 @@ const Connect = () => {
     }
   };
 
-  // 팝업창 열기/닫기 핸들러
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
   };
 
   return (
-    <div className="bg-[#16423C] pt-28 p-8 shadow-lg min-h-screen flex flex-col justify-center items-center">
+    <div className="bg-[#16423C] pt-28 p-8 shadow-lg min-h-screen flex flex-col justify-center items-center relative">
       <motion.div
         className="flex flex-col justify-center items-center"
         initial={{ opacity: 0, y: 50 }}
@@ -61,6 +63,8 @@ const Connect = () => {
         <p className="text-gray-400 text-center mb-10">
           프로젝트 제안이나 궁금한 점이 있다면 언제든 방명록에 남겨주세요. 함께 성장할 기회를 기다리고 있습니다!
         </p>
+
+        {/* Social Links */}
         <div className="flex justify-center gap-8 mb-12">
           <a
             href="mailto:lsy_0906@naver.com"
@@ -82,7 +86,7 @@ const Connect = () => {
             href="https://velog.io/@your-username"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="velog"
+            aria-label="Velog"
             className="text-[#E9EFEC] text-2xl hover:text-green-400 transition"
           >
             <FaBloggerB />
@@ -98,6 +102,7 @@ const Connect = () => {
           </a>
         </div>
 
+        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-6 max-w-lg mx-auto">
           <input
             type="text"
@@ -132,18 +137,65 @@ const Connect = () => {
             Leave Message
           </button>
         </form>
+
         {error && <p className="text-red-500 text-center">{error}</p>}
 
-        <FontAwesomeIcon icon={faArrowDown} className="ml-2 text-4xl pt-10 animate-pulse text-pink-400" />
-
+        {/* Book Icon with Hover */}
         <h3
           onClick={toggleModal}
-          className="text-3xl font-bold mb-6 text-center mt-10 cursor-pointer transition  text-white px-6 py-3 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transform duration-300"
+          className="absolute top-10 sm:top-0 right-6 cursor-pointer text-3xl font-bold mb-6 text-center mt-10 transition text-white px-6 py-3 rounded-lg hover:scale-110 transform duration-300"
+          onMouseEnter={handleOpen} // 마우스 올리면 상태 변경
+          onMouseLeave={handleClose} // 마우스를 떼면 상태 변경
         >
-          방명록 보러 가실래요?
+          <div className="flex flex-row items-end gap-2">
+            {isOpen && (
+              <motion.div
+                className="flex flex-row items-center gap-1"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, ease: 'easeOut' }}
+              >
+                <motion.span
+                  className="text-base"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{
+                    duration: 0.5,
+                    ease: 'easeOut',
+                    delay: 0.1, // 각 글자가 0.1초마다 나타나도록 설정
+                  }}
+                >
+                  {['방', '명', '록', '을', ' ', '보', '러', ' ', '오', '셨', '나요', '?'].map((char, index) => (
+                    <motion.span
+                      key={index}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{
+                        delay: index * 0.1, // 글자마다 조금씩 차이를 두고 등장
+                      }}
+                    >
+                      {char}
+                    </motion.span>
+                  ))}
+                </motion.span>
+                <motion.span
+                  className="text-lg text-yellow-400"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{
+                    delay: 1.2,
+                    duration: 0.5,
+                  }}
+                >
+                  ⇢
+                </motion.span>
+              </motion.div>
+            )}
+            <FaBook size={40} color="#E4E0E1" className="sm:size-8" />
+          </div>
         </h3>
 
-        {/* Guestbook 팝업 */}
+        {/* Guestbook Modal */}
         {isModalOpen && <Guestbook toggleModal={toggleModal} />}
       </motion.div>
     </div>

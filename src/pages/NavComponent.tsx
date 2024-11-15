@@ -12,7 +12,7 @@ const NavComponent = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const sectionId = entry.target.id as 'project' | 'education' | 'connect';
-          setActiveSection(sectionId);
+          setActiveSection(sectionId); // 화면에 30% 이상 보이면 해당 섹션의 ID를 활성화
         }
       });
     };
@@ -20,7 +20,7 @@ const NavComponent = () => {
     const options = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.9,
+      threshold: 0.3, // 30% 이상 보일 때 활성화
     };
 
     const observer = new IntersectionObserver(handleIntersection, options);
@@ -37,7 +37,7 @@ const NavComponent = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setActiveSection(sectionId);
+      setActiveSection(sectionId); // 해당 섹션으로 스크롤 시 색상 변경
     }
   };
 
@@ -45,13 +45,13 @@ const NavComponent = () => {
     <div>
       <Navigation scrollToSection={scrollToSection} activeSection={activeSection} />
 
-      <div id="project" className="h-full">
+      <div id="project" className="h-full sm:h-full">
         <Project />
       </div>
-      <div id="education" className="h-full ">
+      <div id="education" className="h-full sm:h-full">
         <Education />
       </div>
-      <div id="connect" className="h-full">
+      <div id="connect" className="h-full sm:h-full">
         <Connect />
       </div>
     </div>
