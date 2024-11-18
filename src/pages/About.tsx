@@ -21,6 +21,7 @@ const About = () => {
 
     if (aboutRef.current) {
       observer.observe(aboutRef.current);
+      console.log(skillSectionVisible);
     }
 
     return () => {
