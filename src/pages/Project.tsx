@@ -4,7 +4,6 @@ import ProjectCard from '../components/ProjectCard';
 import supabase from '../supabaseClient';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import RetrospectivePage from '../components/RetrospectivePage';
 
 interface Project {
   id: number;

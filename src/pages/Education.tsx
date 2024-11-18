@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import 발표 from '../assets/education/발표.jpeg';
 import 우수수료생 from '../assets/education/우수수료생.jpeg';
 import EducationSection from '../components/EducationSection';
