@@ -4,6 +4,7 @@ import ProjectCard from '../components/ProjectCard';
 import supabase from '../supabaseClient';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
+import RetrospectivePage from '../components/RetrospectivePage';
 
 interface Project {
   id: number;
@@ -53,36 +54,39 @@ const Project = () => {
   }, []);
 
   return (
-    <div className="flex flex-col bg-[#16423C] px-6 py-8 gap-12 pt-28" ref={projectRef}>
-      {projects.length > 0 ? (
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{
-            type: 'spring',
-            stiffness: 30,
-            damping: 15,
-          }}
-        >
-          <Swiper
-            spaceBetween={20}
-            slidesPerView={1}
-            loop={false}
-            navigation={true}
-            modules={[Navigation]}
-            className="w-full"
+    <>
+      {' '}
+      <div className="flex flex-col bg-[#16423C] px-6 py-8 gap-12 pt-28" ref={projectRef}>
+        {projects.length > 0 ? (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{
+              type: 'spring',
+              stiffness: 30,
+              damping: 15,
+            }}
           >
-            {projects.map((project) => (
-              <SwiperSlide key={project.id}>
-                <ProjectCard {...project} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </motion.div>
-      ) : (
-        <p className="text-[#E9EFEC]">No projects available.</p>
-      )}
-    </div>
+            <Swiper
+              spaceBetween={20}
+              slidesPerView={1}
+              loop={false}
+              navigation={true}
+              modules={[Navigation]}
+              className="w-full"
+            >
+              {projects.map((project) => (
+                <SwiperSlide key={project.id}>
+                  <ProjectCard {...project} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </motion.div>
+        ) : (
+          <p className="text-[#E9EFEC]">No projects available.</p>
+        )}
+      </div>
+    </>
   );
 };
 

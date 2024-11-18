@@ -23,7 +23,6 @@ const Guestbook: React.FC<GuestbookProps> = ({ toggleModal }) => {
     getData();
   }, []);
 
-  // Format the date to 'YYYY-MM-DD' format
   const formatDate = (date: string) => {
     const d = new Date(date);
     return d.toLocaleDateString('en-CA');

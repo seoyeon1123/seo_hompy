@@ -1,7 +1,7 @@
 const TopBar = () => {
   return (
     <>
-      <nav className="bg-[#16423C] shadow-md w-full">
+      <nav className="bg-[#16423C] shadow-md w-full lg:px-[200px]">
         <div className="w-full py-5 flex justify-start items-center gap-4 px-10">
           <a
             href="https://github.com/seoyeon1123"

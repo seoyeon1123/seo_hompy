@@ -5,7 +5,7 @@ interface NavigationProps {
 
 const Navigation = ({ scrollToSection, activeSection }: NavigationProps) => {
   return (
-    <div className="bg-[#16423C] text-[#E9EFEC] p-5 sticky top-0 z-20 sm:transition-all sm:duration-300">
+    <div className="bg-[#16423C] text-[#E9EFEC] p-5 sticky top-0 z-20 sm:transition-all sm:duration-300 lg:px-[200px]">
       <div className="flex gap-4 text-3xl sm:text-xl">
         <button
           onClick={() => scrollToSection('project')}

@@ -11,7 +11,7 @@
     @apply border border-black border-solid px-2 rounded-xl text-center w-full;
   }
 }
-/* 기본 Swiper 버튼 중앙에 배치 */
+
 .swiper-button-next,
 .swiper-button-prev {
   color: wheat;
@@ -21,7 +21,7 @@
   transition:
     opacity 0.3s,
     transform 0.3s;
-  z-index: 10; /* 버튼을 이미지 위에 위치시킴 */
+  z-index: 10;
 }
 
 .swiper-button-next:after,
