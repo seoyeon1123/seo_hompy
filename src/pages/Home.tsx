@@ -6,6 +6,9 @@ import { faAnglesDown } from '@fortawesome/free-solid-svg-icons';
 import About from './About';
 import TopBar from '../layout/TopBar';
 import NavComponent from './NavComponent';
+import Project from './Project';
+import Education from './Education';
+import Connect from './Connect';
 
 const Home = () => {
   const [firstTextVisible, setFirstTextVisible] = useState(false);
@@ -29,17 +32,16 @@ const Home = () => {
 
   return (
     <>
-      <div className={`h-screen ${scrollable ? 'overflow-y-auto' : 'overflow-hidden'}`}>
+      <div className={`relative ${scrollable ? 'overflow-y-auto' : 'overflow-hidden'}`}>
         <TopBar />
-        <div className="flex flex-col items-center justify-center gap-5 h-screen bg-[#16423C] text-white relative">
+        <div className="flex flex-col items-center justify-center gap-5 h-screen relative">
           {firstTextVisible && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
               className="text-center absolute top-[140px] 
-              sm:top-[100px]
-              md:top-[100px] "
+             "
               onAnimationComplete={() => setSecondTextVisible(true)}
             >
               <h1 className="text-9xl sm:text-7xl font-bold text-[#6A9C89] relative z-0 text-shadow-lg sm:-top-6 md:-top-6 ">
@@ -56,7 +58,7 @@ const Home = () => {
             src={profile}
             alt="프로필"
             width={300}
-            className="rounded-full shadow-xl border-4 border-[#387478] mb-6 sm:size-64 sm:top-50 md:top-50 "
+            className="rounded-full shadow-xl border-4 border-[#387478] mb-6 sm:size-72 "
             initial={{ x: -800, opacity: 0, rotate: -360 }}
             animate={{ x: 0, opacity: 1, rotate: 0 }}
             transition={{ type: 'spring', duration: 3, bounce: 0.5 }}
@@ -69,14 +71,16 @@ const Home = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-center absolute bottom-[250px] sm:bottom-[150px]"
+              className="text-center absolute bottom-[150px] sm:bottom-[150px]"
               onAnimationComplete={() => setThirdTextVisible(true)}
             >
-              <p className="text-lg sm:text-sm text-center px-4 text-[#E9EFEC]">
+              <p className="text-lg sm:text-sm text-center px-4 text-[#E9EFEC] my-10">
                 호기심이 많고 새로운 도전을 좋아하는 <br className="hidden sm:block" />
                 <span className="text-[#6A9C89] font-semibold">프론트엔드 개발자</span> 입니다.
                 <br /> 좋은 사용자 경험을 제공하기 위해 열심히 노력하고 있어요!
               </p>
+
+              <NavComponent />
             </motion.div>
           )}
 
@@ -90,7 +94,7 @@ const Home = () => {
                 color: ['#6A9C89', '#E9EFEC'],
               }}
               transition={{
-                duration: 1, // 기존 2초에서 1초로 변경
+                duration: 1,
                 repeat: Infinity,
                 repeatType: 'reverse',
               }}
@@ -99,10 +103,13 @@ const Home = () => {
             </motion.div>
           )}
         </div>
+
         <div ref={aboutRef}>
           <About />
+          <Project />
+          <Education />
+          <Connect />
         </div>
-        <NavComponent />
       </div>
     </>
   );

@@ -12,6 +12,10 @@
   }
 }
 
+body {
+  @apply bg-[#0f302c] text-[#E9EFEC];
+}
+
 .swiper-button-next,
 .swiper-button-prev {
   color: wheat;
@@ -66,4 +70,16 @@
 .swiper {
   position: relative; /* 버튼과 페이지네이션 위치 조정 */
   padding-bottom: 30px; /* 페이지네이션과 이미지 간 간격을 줄임 */
+}
+
+.perspective-1000 {
+  perspective: 1000px; /* 3D 공간을 위한 원근 효과 */
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg); /* Y축을 기준으로 180도 회전 */
+}
+
+.rotate-y-0 {
+  transform: rotateY(0); /* 원래 상태 */
 }

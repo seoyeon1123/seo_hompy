@@ -1,54 +1,50 @@
 import { useState } from 'react';
-
 import images from '../assets/skill/skills';
 
 const SkillfulSection = () => {
   const [activeTab, setActiveTab] = useState<'Front-End' | 'Back-End' | 'Tools'>('Front-End');
 
-  const skills: {
-    'Front-End': { src: string }[];
-    'Back-End': { src: string }[];
-    Tools: { src: string }[];
-  } = {
-    'Front-End': [
-      { src: images.Html },
-      { src: images.Css },
-      { src: images.Js },
-      { src: images.ReactImg },
-      { src: images.NextJS },
-      { src: images.TypeScript },
-      { src: images.TailwindCSS },
-      { src: images.Styledcomponents },
-    ],
-    'Back-End': [{ src: images.NodeJS }, { src: images.Prisma }, { src: images.Supabase }, { src: images.Firebase }],
-    Tools: [
-      { src: images.Figma },
-      { src: images.Github },
-      { src: images.Postman },
-      { src: images.VSCode },
-      { src: images.Vite },
-      { src: images.Vercel },
-    ],
-  };
+  const allSkills = [
+    { category: 'Front-End', src: images.Html },
+    { category: 'Front-End', src: images.Css },
+    { category: 'Front-End', src: images.Js },
+    { category: 'Front-End', src: images.ReactImg },
+    { category: 'Front-End', src: images.NextJS },
+    { category: 'Front-End', src: images.TypeScript },
+    { category: 'Front-End', src: images.TailwindCSS },
+    { category: 'Front-End', src: images.Styledcomponents },
+    { category: 'Back-End', src: images.NodeJS },
+    { category: 'Back-End', src: images.Prisma },
+    { category: 'Back-End', src: images.Supabase },
+    { category: 'Back-End', src: images.Firebase },
+    { category: 'Tools', src: images.Figma },
+    { category: 'Tools', src: images.Github },
+    { category: 'Tools', src: images.Postman },
+    { category: 'Tools', src: images.VSCode },
+    { category: 'Tools', src: images.Vite },
+    { category: 'Tools', src: images.Vercel },
+  ];
 
   return (
-    <div className="flex lg:flex-row flex-col justify-between gap-6">
-      <h2 className="text-6xl sm:text-5xl font-bold mb-8 text-[#16423C] text-shadow-md">
-        Skill &<br /> Tools
-      </h2>
+    <div className="flex flex-col  gap-10 sm:items-center px-6 py-60">
+      <div className="flex flex-col justify-center items-center gap-2">
+        <h1 className="text-lg font-bold text-[#fbe797] leading-tight">Skii & Tools</h1>
+        <p className="text-3xl font-semibold">제가 사용할 수 있는 기술스텍이에요.</p>
+      </div>
 
-      <div className="flex flex-col">
-        <div className="flex justify-center gap-6 mb-6">
+      <div className="flex flex-col items-center sm:items-start ">
+        {/* Tabs */}
+        <div className="flex justify-center sm:justify-start gap-8 mb-8 border-b bg-white border-solid rounded-full px-3 py-1">
           <button
-            className={`text-4xl sm:text-2xl font-semibold ${
-              activeTab === 'Front-End' ? 'text-[#16423C]' : 'text-gray-400'
+            className={`text-2xl sm:text-xl font-bold transition-all duration-300 ${
+              activeTab === 'Front-End' ? 'text-[#16423C] ' : 'text-gray-400'
             }`}
             onClick={() => setActiveTab('Front-End')}
           >
             Front-End
           </button>
           <button
-            className={`text-4xl sm:text-2xl font-semibold ${
+            className={`text-2xl sm:text-xl font-bold transition-all duration-300 ${
               activeTab === 'Back-End' ? 'text-[#16423C]' : 'text-gray-400'
             }`}
             onClick={() => setActiveTab('Back-End')}
@@ -56,21 +52,26 @@ const SkillfulSection = () => {
             Back-End
           </button>
           <button
-            className={`text-4xl sm:text-2xl font-semibold ${activeTab === 'Tools' ? 'text-[#16423C]' : 'text-gray-400'}`}
+            className={`text-2xl sm:text-xl font-bold transition-all duration-300 ${
+              activeTab === 'Tools' ? 'text-[#16423C] ' : 'text-gray-400'
+            }`}
             onClick={() => setActiveTab('Tools')}
           >
             Tools
           </button>
         </div>
 
-        <div>
-          <div className="mb-6">
-            <div className="flex lg:w-[600px] flex-wrap gap-4 justify-center transition-transform">
-              {skills[activeTab]?.map((skill, index) => (
-                <img key={index} src={skill.src} alt={`Skill ${index}`} width={48} height={48} />
-              ))}
-            </div>
-          </div>
+        <div className="grid grid-cols-4 sm:grid-cols-5 lg:grid-cols-6 lg:gap-6 sm:gap-2 md: gap-2 justify-center">
+          {allSkills.map((skill, index) => (
+            <img
+              key={index}
+              src={skill.src}
+              alt={`Skill ${index}`}
+              className={`w-16 h-16 sm:w-20 sm:h-20 object-contain transition-all duration-300 ${
+                activeTab === skill.category ? 'opacity-100' : 'opacity-30'
+              }`}
+            />
+          ))}
         </div>
       </div>
     </div>

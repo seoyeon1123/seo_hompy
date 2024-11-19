@@ -49,7 +49,14 @@ React에 대한 심도 있는 이해를 쌓았습니다. 이를 바탕으로 Nex
 
 const Education = () => {
   return (
-    <div className="bg-[#E9EFEC] py-28 flex flex-col justify-center sm:gap-4 min-h-screen lg:px-[200px]">
+    <div className="pt-28 flex flex-col justify-center sm:gap-4 min-h-screen lg:px-[200px] md:px-[50px]" id="education">
+      <div className="flex flex-col justify-center items-center gap-2 mb-20">
+        <h1 className="text-lg font-bold text-[#fbe797] leading-tight">Education</h1>
+        <p className="text-3xl font-semibold text-center">
+          짧지만, 탄탄하게 <br /> 길을 만들어 가고 있어요.
+        </p>
+      </div>
+
       {educationData.map((item, index) => (
         <div key={index}>
           <EducationSection

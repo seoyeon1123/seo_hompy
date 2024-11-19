@@ -4,6 +4,7 @@ import ProjectCard from '../components/ProjectCard';
 import supabase from '../supabaseClient';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
+import { useInView } from 'react-intersection-observer';
 
 interface Project {
   id: number;
@@ -18,8 +19,6 @@ interface Project {
 
 const Project = () => {
   const [projects, setProjects] = useState<Project[]>([]);
-  const [isVisible, setIsVisible] = useState(false);
-  const projectRef = useRef<HTMLDivElement | null>(null);
 
   const fetchProjectsFromSupabase = async () => {
     const { data: projects, error } = await supabase.from('projects').select('*').order('id', { ascending: true });
@@ -34,38 +33,27 @@ const Project = () => {
     fetchProjectsFromSupabase();
   }, []);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.3 },
-    );
-
-    if (projectRef.current) {
-      observer.observe(projectRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.5 });
 
   return (
     <>
-      {' '}
-      <div className="flex flex-col bg-[#16423C] px-6 py-8 gap-12 pt-28" ref={projectRef}>
+      <div className="flex flex-col px-6 py-8 gap-12" ref={ref} id="project">
         {projects.length > 0 ? (
           <motion.div
             initial={{ opacity: 0, y: 50 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{
               type: 'spring',
               stiffness: 30,
               damping: 15,
             }}
           >
+            <div className="flex flex-col justify-center items-center gap-2 my-10 mb-20">
+              <h1 className="text-lg font-bold text-[#fbe797] leading-tight">Projects</h1>
+              <p className="text-3xl font-semibold text-center">
+                다양한 프로젝트로 기술과 <br /> 경험을 쌓아가고 있어요.
+              </p>
+            </div>
             <Swiper
               spaceBetween={20}
               slidesPerView={1}

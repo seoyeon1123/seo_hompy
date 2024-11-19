@@ -23,9 +23,9 @@ const EducationSection = ({ date, title, description, images, delay = 0, isLast 
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
       className="relative flex flex-row items-start gap-8 sm:flex-col sm:items-center sm:gap-4 sm:px-4 mb-10"
     >
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center ">
         <motion.div
-          className="w-4 h-4 rounded-full bg-[#16423C]"
+          className="w-4 h-4 rounded-full bg-[#FFA726]"
           initial={{ opacity: 0 }}
           animate={{ opacity: inView ? 1 : 0 }}
           transition={{ duration: 0.5, delay: delay }}
@@ -33,7 +33,7 @@ const EducationSection = ({ date, title, description, images, delay = 0, isLast 
 
         {!isLast && (
           <motion.div
-            className="absolute mt-12 top-0 bottom-0 w-[2px] bg-[#16423C] sm:block"
+            className="absolute mt-12 top-0 bottom-0 w-[2px] bg-[#FFA726] sm:hidden md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: inView ? 1 : 0 }}
             transition={{ duration: 0.5, delay: delay + 0.5 }}
@@ -42,14 +42,14 @@ const EducationSection = ({ date, title, description, images, delay = 0, isLast 
       </div>
 
       <div className="flex-shrink-0 flex flex-col items-center gap-2 w-1/4 sm:w-full">
-        <p className="text-neutral-500 text-sm sm:text-center">{date}</p>
+        <p className="text-[#A7F3D0] text-sm sm:text-center">{date}</p>
       </div>
 
       {images ? (
         <div className="flex-grow flex flex-row sm:flex-col md:flex-col gap-4">
           <div className="flex-grow flex flex-col gap-4">
-            <h1 className="text-xl font-semibold text-[#16423C] sm:text-center">{title}</h1>
-            <p className="leading-relaxed text-gray-700 w-full">{description}</p>
+            <h1 className="text-xl font-semibold text-[#E9EFEC] sm:text-center">{title}</h1>
+            <p className="leading-relaxed text-neutral-300 w-full">{description}</p>
           </div>
           <div className="flex justify-center">
             <Swiper

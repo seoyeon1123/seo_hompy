@@ -44,7 +44,10 @@ const Connect = () => {
   };
 
   return (
-    <div className="bg-[#16423C] pt-28 p-8 shadow-lg min-h-screen flex flex-col justify-center items-center relative lg:px-[200px]">
+    <div
+      className=" pt-20 p-8 shadow-lg min-h-screen flex flex-col justify-center items-center relative lg:px-[200px] "
+      id="connect"
+    >
       <motion.div
         className="flex flex-col justify-center items-center"
         initial={{ opacity: 0, y: 50 }}
@@ -53,7 +56,7 @@ const Connect = () => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-5xl font-bold text-[#E9EFEC] mb-6 text-center">Leave a Message!</h2>
+        <h2 className="text-5xl font-bold text-[#E9EFEC] mb-6 text-center">감사합니다.</h2>
         <p className="text-gray-400 text-center mb-10">
           프로젝트 제안이나 궁금한 점이 있다면 언제든 방명록에 남겨주세요. 함께 성장할 기회를 기다리고 있습니다!
         </p>
