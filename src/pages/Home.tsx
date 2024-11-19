@@ -4,7 +4,6 @@ import profile from '../assets/main/IMG_6067.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesDown } from '@fortawesome/free-solid-svg-icons';
 import About from './About';
-import TopBar from '../layout/TopBar';
 import NavComponent from './NavComponent';
 import Project from './Project';
 import Education from './Education';
@@ -32,8 +31,7 @@ const Home = () => {
 
   return (
     <>
-      <div className={`relative ${scrollable ? 'overflow-y-auto' : 'overflow-hidden'}`}>
-        <TopBar />
+      <div className={`relative ${scrollable ? 'overflow-y-auto' : 'overflow-hidden'}`} id="main">
         <div className="flex flex-col items-center justify-center gap-5 h-screen relative">
           {firstTextVisible && (
             <motion.div
@@ -71,16 +69,18 @@ const Home = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-center absolute bottom-[150px] sm:bottom-[150px]"
+              className="text-center absolute bottom-[150px] sm:bottom-[150px] "
               onAnimationComplete={() => setThirdTextVisible(true)}
             >
-              <p className="text-lg sm:text-sm text-center px-4 text-[#E9EFEC] my-10">
+              <p className="text-lg sm:text-sm text-center px-4 text-[#E9EFEC] py-10 ">
                 호기심이 많고 새로운 도전을 좋아하는 <br className="hidden sm:block" />
                 <span className="text-[#6A9C89] font-semibold">프론트엔드 개발자</span> 입니다.
                 <br /> 좋은 사용자 경험을 제공하기 위해 열심히 노력하고 있어요!
               </p>
 
-              <NavComponent />
+              <div className="flex flex-row justify-center items-center mt-5 mb-10">
+                <NavComponent />
+              </div>
             </motion.div>
           )}
 
