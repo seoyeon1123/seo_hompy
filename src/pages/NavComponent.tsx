@@ -65,7 +65,7 @@ const NavComponent = () => {
       ref={navRef}
       className={`transition-all ${fixedNav ? 'fixed top-0 left-0 w-full z-50' : 'absolute bg-transparent'}`}
     >
-      <div className="flex flex-row justify-center items-center gap-8 py-4 bg-opacity-5 backdrop-blur-md rounded-full *:text-white font-bold w-[400px] mx-auto shadow-md">
+      <div className="flex flex-row justify-center items-center gap-6 py-4 bg-opacity-5 backdrop-blur-md rounded-full *:text-white font-bold w-[400px] mx-auto shadow-md">
         <div className={`text-base cursor-pointer `} onClick={() => scrollToSection('main')}>
           <img src={main} alt="메인사진" className="size-8" />
         </div>
