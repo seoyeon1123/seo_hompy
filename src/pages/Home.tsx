@@ -40,7 +40,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
-              className="text-center absolute top-[90px] 
+              className="text-center absolute lg:top-[90px] top-[50px]
              "
               onAnimationComplete={() => setSecondTextVisible(true)}
             >
@@ -58,7 +58,9 @@ const Home = () => {
             src={profile}
             alt="프로필"
             width={300}
-            className="rounded-full shadow-xl border-4 border-[#387478] mb-6 top-[250px] "
+            className="rounded-full shadow-xl border-4 border-[#387478] mb-6 
+            top-[250px]
+            sm:top-[150px] md:top-[150px] sm:size-64"
             initial={{ x: -800, opacity: 0, rotate: -360 }}
             animate={{ x: 0, opacity: 1, rotate: 0 }}
             transition={{ type: 'spring', duration: 3, bounce: 0.5 }}
@@ -71,16 +73,16 @@ const Home = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-center absolute bottom-[200px] sm:bottom-[150px] "
+              className="text-center absolute lg:bottom-[250px] bottom-[100px]"
               onAnimationComplete={() => setThirdTextVisible(true)}
             >
-              <p className="text-lg sm:text-sm text-center px-4 text-[#E9EFEC] py-10 ">
+              <p className="text-lg sm:text-sm text-center px-4 text-[#E9EFEC] py-8 ">
                 호기심이 많고 새로운 도전을 좋아하는 <br className="hidden sm:block" />
                 <span className="text-[#6A9C89] font-semibold">프론트엔드 개발자</span> 입니다.
                 <br /> 좋은 사용자 경험을 제공하기 위해 열심히 노력하고 있어요!
               </p>
 
-              <div className="flex flex-row justify-center items-center mt-5 mb-10">
+              <div className="flex flex-row justify-center items-center lg:mt-5 mb-10">
                 <NavComponent />
               </div>
             </motion.div>
@@ -88,7 +90,7 @@ const Home = () => {
 
           {thirdTextVisible && (
             <motion.div
-              className="bottom-20 absolute mb-3"
+              className="lg:bottom-20 bottom-14 absolute mb-3"
               initial={{ opacity: 0, y: 0 }}
               animate={{
                 opacity: 1,

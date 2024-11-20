@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import ProjectCard from '../components/ProjectCard';
 import supabase from '../supabaseClient';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import { useInView } from 'react-intersection-observer';
 import '../styles/swiper.css';
 
 interface Project {
@@ -34,22 +32,12 @@ const Project = () => {
     fetchProjectsFromSupabase();
   }, []);
 
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.5 });
-
   return (
     <>
-      <div className="flex flex-col px-6 py-8 gap-12" ref={ref} id="project">
+      <div className="flex flex-col px-6 py-10 gap-12" id="project">
         {projects.length > 0 ? (
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{
-              type: 'spring',
-              stiffness: 30,
-              damping: 15,
-            }}
-          >
-            <div className="flex flex-col justify-center items-center gap-2 my-10 mb-20">
+          <>
+            <div className="flex flex-col justify-center items-center gap-2 my-10 ">
               <h1 className="text-lg font-bold text-[#fbe797] leading-tight">Projects</h1>
               <p className="text-3xl font-semibold text-center">
                 다양한 프로젝트로 기술과 <br /> 경험을 쌓아가고 있어요.
@@ -69,7 +57,7 @@ const Project = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
-          </motion.div>
+          </>
         ) : (
           <p className="text-[#E9EFEC]">No projects available.</p>
         )}

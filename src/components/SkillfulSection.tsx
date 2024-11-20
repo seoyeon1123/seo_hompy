@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import images from '../assets/skill/skills';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const SkillfulSection = () => {
   const [activeTab, setActiveTab] = useState<'Front-End' | 'Back-End' | 'Tools'>('Front-End');
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.5 });
 
   const allSkills = [
     { category: 'Front-End', src: images.Html },
@@ -26,7 +29,13 @@ const SkillfulSection = () => {
   ];
 
   return (
-    <div className="flex flex-col  gap-10 sm:items-center px-6 py-60">
+    <motion.div
+      ref={ref}
+      transition={{ duration: 1 }}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+      className="flex flex-col  gap-10 sm:items-center px-6 pt-56 pb-36"
+    >
       <div className="flex flex-col justify-center items-center gap-2">
         <h1 className="text-lg font-bold text-[#fbe797] leading-tight">Skill & Tools</h1>
         <p className="text-3xl font-semibold">제가 사용할 수 있는 기술스텍이에요.</p>
@@ -74,7 +83,7 @@ const SkillfulSection = () => {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

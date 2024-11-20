@@ -2,11 +2,14 @@ import { useState } from 'react';
 import { FaGithub, FaEnvelope, FaBloggerB, FaInstagram } from 'react-icons/fa';
 import supabase from '../supabaseClient';
 import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const Connect = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState(false);
+
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.5 });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -49,12 +52,11 @@ const Connect = () => {
       id="connect"
     >
       <motion.div
+        ref={ref}
         className="flex flex-col justify-center items-center"
+        transition={{ duration: 1 }}
+        animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
         initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -50 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
       >
         <h2 className="text-5xl font-bold text-[#E9EFEC] mb-6 text-center">감사합니다.</h2>
         <p className="text-gray-400 text-center mb-10">

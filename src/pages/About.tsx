@@ -58,7 +58,7 @@ const About = () => {
               <div className="flex items-center text-[#16423C] bg-[#f5f5f5] border-2 border-gray-300 rounded-full px-4 py-2 shadow-md ">
                 <ReactTyped
                   strings={[
-                    '피드백 받는걸 좋아하는 개발자 입니다.',
+                    '피드백 환영합니다.',
                     '저는 소통하는 개발자 입니다.',
                     '배우고 싶은 개발자 입니다.',
                     '성장하고 싶은 개발자 입니다. ',

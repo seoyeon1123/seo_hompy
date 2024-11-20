@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 
 interface Image {
   src: string;
@@ -32,8 +34,16 @@ const ProjectCard = ({ title, period, images, description, github_url, features,
     }
   }, [images]);
 
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.5 });
+
   return (
-    <div className="flex flex-col items-center bg-[#E9EFEC] rounded-lg shadow-lg p-10 gap-6 max-w-7xl mx-auto sm:w-full sm:p-5 *:text-neutral-500">
+    <motion.div
+      ref={ref}
+      transition={{ duration: 1 }}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+      className="flex flex-col items-center bg-[#E9EFEC] rounded-lg shadow-lg p-10 gap-6 max-w-7xl mx-auto sm:w-full sm:p-5 *:text-neutral-500"
+    >
       <div className="flex flex-col justify-center items-center mt-4  gap-2">
         <h2 className="text-[#16423C] text-6xl sm:text-4xl font-bold">{title}</h2>
         <p>{period}</p>
@@ -43,12 +53,12 @@ const ProjectCard = ({ title, period, images, description, github_url, features,
         <Swiper
           spaceBetween={20}
           slidesPerView={isPortrait ? 2 : 1}
-          loop={true}
+          loop={images.length > 1} // 슬라이드가 2개 이상일 때만 loop 활성화
           navigation={true}
           pagination={{ clickable: true }}
           autoplay={{ delay: 3000 }}
           modules={[Navigation, Pagination, Autoplay]}
-          className="w-full max-w-2xl  sm:max-w-sm h-1/2"
+          className="w-full max-w-2xl sm:max-w-sm h-1/2"
         >
           {images.map((image, index) => (
             <SwiperSlide key={index}>
@@ -92,7 +102,7 @@ const ProjectCard = ({ title, period, images, description, github_url, features,
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
