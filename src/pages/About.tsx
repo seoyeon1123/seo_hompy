@@ -8,7 +8,7 @@ const About = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0 });
 
   return (
-    <div ref={ref} className="flex flex-row pt-20 sm:h-full p-6 md:p-10 gap-8 lg:px-[200px] w-full">
+    <div ref={ref} className="flex flex-row pt-28 sm:h-full p-6 md:p-10 gap-8 lg:px-[200px] w-full" id="about">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}

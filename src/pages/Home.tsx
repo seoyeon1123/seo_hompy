@@ -8,6 +8,7 @@ import NavComponent from './NavComponent';
 import Project from './Project';
 import Education from './Education';
 import Connect from './Connect';
+import TopBar from '../layout/TopBar';
 
 const Home = () => {
   const [firstTextVisible, setFirstTextVisible] = useState(false);
@@ -32,18 +33,19 @@ const Home = () => {
   return (
     <>
       <div className={`relative ${scrollable ? 'overflow-y-auto' : 'overflow-hidden'}`} id="main">
+        <TopBar />
         <div className="flex flex-col items-center justify-center gap-5 h-screen relative">
           {firstTextVisible && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
-              className="text-center absolute top-[140px] 
+              className="text-center absolute top-[90px] 
              "
               onAnimationComplete={() => setSecondTextVisible(true)}
             >
               <h1 className="text-9xl sm:text-7xl font-bold text-[#6A9C89] relative z-0 text-shadow-lg sm:-top-6 md:-top-6 ">
-                Front - End
+                Front-End
               </h1>
               <h2 className="text-4xl sm:text-2xl font-medium mb-4 text-neutral-200 absolute top-[90px] sm:top-6 left-1/2 w-full transform -translate-x-1/2 z-10">
                 "예비" 프론트엔드 개발자 <br className="hidden sm:block" />
@@ -56,7 +58,7 @@ const Home = () => {
             src={profile}
             alt="프로필"
             width={300}
-            className="rounded-full shadow-xl border-4 border-[#387478] mb-6 sm:size-72 "
+            className="rounded-full shadow-xl border-4 border-[#387478] mb-6 top-[250px] "
             initial={{ x: -800, opacity: 0, rotate: -360 }}
             animate={{ x: 0, opacity: 1, rotate: 0 }}
             transition={{ type: 'spring', duration: 3, bounce: 0.5 }}
@@ -69,7 +71,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-center absolute bottom-[150px] sm:bottom-[150px] "
+              className="text-center absolute bottom-[200px] sm:bottom-[150px] "
               onAnimationComplete={() => setThirdTextVisible(true)}
             >
               <p className="text-lg sm:text-sm text-center px-4 text-[#E9EFEC] py-10 ">
