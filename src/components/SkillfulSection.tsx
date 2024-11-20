@@ -28,7 +28,7 @@ const SkillfulSection = () => {
   return (
     <div className="flex flex-col  gap-10 sm:items-center px-6 py-60">
       <div className="flex flex-col justify-center items-center gap-2">
-        <h1 className="text-lg font-bold text-[#fbe797] leading-tight">Skii & Tools</h1>
+        <h1 className="text-lg font-bold text-[#fbe797] leading-tight">Skill & Tools</h1>
         <p className="text-3xl font-semibold">제가 사용할 수 있는 기술스텍이에요.</p>
       </div>
 

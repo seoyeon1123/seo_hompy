@@ -4,7 +4,7 @@ import profile from '../assets/main/IMG_6067.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesDown } from '@fortawesome/free-solid-svg-icons';
 import About from './About';
-import NavComponent from './NavComponent';
+import NavComponent from '../components/NavComponent';
 import Project from './Project';
 import Education from './Education';
 import Connect from './Connect';
