@@ -34,7 +34,7 @@ const ProjectCard = ({ title, period, images, description, github_url, features,
 
   return (
     <div className="flex flex-col items-center bg-[#E9EFEC] rounded-lg shadow-lg p-10 gap-6 max-w-7xl mx-auto sm:w-full sm:p-5 *:text-neutral-500">
-      <div className="flex flex-col justify-center items-center mt-4">
+      <div className="flex flex-col justify-center items-center mt-4  gap-2">
         <h2 className="text-[#16423C] text-6xl sm:text-4xl font-bold">{title}</h2>
         <p>{period}</p>
       </div>

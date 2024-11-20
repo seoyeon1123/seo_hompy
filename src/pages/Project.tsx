@@ -5,6 +5,7 @@ import supabase from '../supabaseClient';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { useInView } from 'react-intersection-observer';
+import '../styles/swiper.css';
 
 interface Project {
   id: number;
