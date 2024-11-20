@@ -6,6 +6,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'HangeulNuri-Bold';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/HangeulNuri-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NoonnuBasicGothicRegular';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noon-2410@1.0/NoonnuBasicGothicRegular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @layer utilities {
   .feature-item {
     @apply border border-black border-solid px-2 rounded-xl text-center w-full;

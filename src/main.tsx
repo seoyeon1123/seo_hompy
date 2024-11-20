@@ -8,6 +8,8 @@ import { Reset } from 'styled-reset';
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Reset />
-    <App />
+    <div className="font-noons">
+      <App />
+    </div>
   </StrictMode>,
 );

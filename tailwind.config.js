@@ -3,10 +3,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        establish: ['establishRetrosansOTF', 'sans-serif'],
-        ttbookend: ['TTBookendBatangR', 'sans-serif'],
-        GowunDodum_Regular: ['GowunDodum-Regular'],
-        NoonnuBasicGothicRegular: ['NoonnuBasicGothicRegular'],
+        sans: ['HangeulNuri-Bold', 'sans-serif'],
+        noons: ['NoonnuBasicGothicRegular'],
       },
       boxShadow: {
         text: '0 0 10px rgba(0, 0, 0, 0.7)',
