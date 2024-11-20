@@ -79,7 +79,7 @@ const Connect = () => {
             <FaGithub />
           </a>
           <a
-            href="https://velog.io/@your-username"
+            href="https://velog.io/@leeeee/posts"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Velog"
@@ -121,7 +121,7 @@ const Connect = () => {
             name="message"
             value={formData.message}
             onChange={handleChange}
-            placeholder="보내줄 내용을 입력해주세요 🫶"
+            placeholder="내용을 입력해주세요! 🫶"
             rows={4}
             required
             className="w-full p-3 border border-gray-600 bg-[#1B524C] rounded-lg text-[#E9EFEC] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E9EFEC]"

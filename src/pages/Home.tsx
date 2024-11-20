@@ -8,7 +8,7 @@ import NavComponent from './NavComponent';
 import Project from './Project';
 import Education from './Education';
 import Connect from './Connect';
-import TopBar from '../layout/TopBar';
+import TopBar from '../components/TopBar';
 
 const Home = () => {
   const [firstTextVisible, setFirstTextVisible] = useState(false);
