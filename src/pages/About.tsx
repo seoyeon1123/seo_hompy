@@ -25,12 +25,12 @@ const About = () => {
             </div>
           </div>
 
-          <div className="gap-6 mb-12 flex flex-row *:hover:cursor-pointer sm:flex-col md:grid md:grid-cols-2 sm:justify-center w-full md:items-center md:gap-20 justify-center items-center">
+          <div className="gap-6 mb-12 flex flex-row *:hover:cursor-pointer sm:flex-col md:grid md:grid-cols-2 sm:justify-center w-full md:items-center md:gap-20  justify-center items-center">
             <Card
               subTitle="Who"
               title="Q ) 어떤 사람일까요?"
-              content="서경대학교 아동학과를 졸업하고 어린이집에서 아이들과 함께한 경험이 있는 예비 개발자입니다. 사람들과 소통하는 것을 좋아하며, 이를 바탕으로 프로젝트에서 팀장을 맡아 팀원을 이끌고 성공적으로 마무리한 경험이 있습니다."
-              secondContent="비록 다른 직무에서의 경험이었지만, 사람들과 협력하고 소통하는 데 두려움이 없습니다. 이러한 강점을 개발자로서도 발휘하며 원활한 커뮤니케이션을 통해 팀과 함께 성장하고자 합니다."
+              content="서경대학교 아동학과를 졸업한 후 보육교사로 근무하며 사람들과 소통하고 함께 일하는 환경에서 성장했습니다. 이러한 경험을 바탕으로 팀 프로젝트에서 팀장 역할을 맡아 팀원들과 협력한 경험이 있습니다. "
+              secondContent="사람들과 협력하고 소통하는 데 두려움이 없습니다. 이러한 강점을 개발자로서도 발휘하며 원활한 커뮤니케이션을 통해 팀과 함께 성장하고자 합니다."
             />
 
             <Card
@@ -54,7 +54,7 @@ const About = () => {
             />
           </div>
 
-          <div className="flex lg:flex-row flex-col gap-2 justify-center items-center my-10">
+          <div className="flex lg:flex-row flex-col gap-2 justify-center items-center my-20 md:mt-40">
             <p className="text-[30px] font-bold"> : 저는 </p>
             <div className="relative">
               <div className="flex items-center text-[#16423C] bg-[#f5f5f5] border-2 border-gray-300 rounded-full px-4 py-2 shadow-md ">

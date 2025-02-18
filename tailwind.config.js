@@ -12,9 +12,10 @@ module.exports = {
     },
 
     screens: {
-      sm: { max: '479px' },
-      md: { min: '480px', max: '1050px' },
+      sm: { max: '600px' },
+      md: { min: '601px', max: '1050px' },
       lg: { min: '1050px' },
+      716: '716px',
     },
   },
   plugins: [
