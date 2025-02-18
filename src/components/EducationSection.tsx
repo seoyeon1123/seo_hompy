@@ -21,7 +21,8 @@ const EducationSection = ({ date, title, description, images, delay = 0, isLast 
       transition={{ duration: 1, delay }}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
-      className="relative flex flex-row items-start gap-8 sm:flex-col sm:items-center sm:gap-4 sm:px-4 mb-10"
+      className="relative flex flex-row items-start gap-8 sm:flex-col sm:items-center sm:gap-4 sm:px-4 mb-10
+      max-w-[1400px]"
     >
       <div className="flex flex-col items-center ">
         <motion.div

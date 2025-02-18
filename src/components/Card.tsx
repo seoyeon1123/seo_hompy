@@ -28,9 +28,10 @@ const Card = ({ subTitle, title, content, secondContent }: CardProps) => {
       </div>
 
       <div
-        className={`absolute w-full min-h-80 bg-[#21625a]  text-[#E9EFEC] rounded-2xl shadow-lg p-5 flex flex-col gap-4 justify-start items-center transition-transform duration-700 ${
-          isFlipped ? '' : 'rotate-y-180'
-        }`}
+        className={`absolute w-full min-h-80 
+          bg-[#21625a]  text-[#E9EFEC] rounded-2xl shadow-lg p-5 flex flex-col gap-4 justify-start items-center transition-transform duration-700 ${
+            isFlipped ? '' : 'rotate-y-180'
+          }`}
         style={{
           backfaceVisibility: 'hidden',
           transformStyle: 'preserve-3d',

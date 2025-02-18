@@ -8,16 +8,16 @@ const About = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0 });
 
   return (
-    <div ref={ref} className="flex flex-row pt-28 sm:h-full p-6 md:p-10 gap-8 lg:px-[200px] w-full" id="about">
+    <div ref={ref} className="flex flex-row pt-28 sm:h-full p-6 md:p-10 gap-8 w-full" id="about">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
         style={{ position: 'relative' }}
-        className="flex flex-row w-full"
+        className="flex flex-row justify-center items-center w-full"
       >
-        <div className="flex flex-col sm:flex-col justify-between sm:justify-center md:justify-center md:items-center sm:items-center w-full">
+        <div className="flex flex-col  justify-center items-center sm:flex-col sm:justify-center md:justify-center md:items-center sm:items-center w-full">
           <div className="flex flex-col mb-20">
             <div className="flex flex-col justify-center items-center gap-2">
               <h1 className="text-lg font-bold text-[#fbe797] leading-tight">About Me</h1>
@@ -25,7 +25,7 @@ const About = () => {
             </div>
           </div>
 
-          <div className="gap-6 items-center mb-12 flex flex-row *:hover:cursor-pointer sm:flex-col md:grid md:grid-cols-2 sm:justify-center w-full md:items-center md:gap-20">
+          <div className="gap-6 mb-12 flex flex-row *:hover:cursor-pointer sm:flex-col md:grid md:grid-cols-2 sm:justify-center w-full md:items-center md:gap-20 justify-center items-center">
             <Card
               subTitle="Who"
               title="Q ) 어떤 사람일까요?"
