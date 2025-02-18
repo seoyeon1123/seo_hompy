@@ -17,6 +17,8 @@ import VSCode from './VSCode.svg';
 import Vite from './Vite_Dark.svg';
 import Styledcomponents from './StyledComponents.svg';
 import Vercel from './Vercel.svg';
+import zustand from './zustand.svg';
+import socketIo from './Socketio.svg.png';
 
 const images = {
   Js,
@@ -37,6 +39,8 @@ const images = {
   Vite,
   Styledcomponents,
   Vercel,
+  zustand,
+  socketIo,
 };
 
 export default images;

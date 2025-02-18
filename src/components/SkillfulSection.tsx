@@ -16,6 +16,8 @@ const SkillfulSection = () => {
     { category: 'Front-End', src: images.TypeScript },
     { category: 'Front-End', src: images.TailwindCSS },
     { category: 'Front-End', src: images.Styledcomponents },
+    { category: 'Front-End', src: images.zustand },
+    { category: 'Front-End', src: images.socketIo },
     { category: 'Back-End', src: images.NodeJS },
     { category: 'Back-End', src: images.Prisma },
     { category: 'Back-End', src: images.Supabase },
@@ -42,7 +44,6 @@ const SkillfulSection = () => {
       </div>
 
       <div className="flex flex-col items-center sm:items-start ">
-        {/* Tabs */}
         <div className="flex justify-center sm:justify-start gap-8 mb-8 border-b bg-white border-solid rounded-full px-3 py-1">
           <button
             className={`text-2xl sm:text-xl font-bold transition-all duration-300 ${
